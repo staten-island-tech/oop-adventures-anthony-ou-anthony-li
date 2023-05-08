@@ -8,7 +8,7 @@ class character:
         self.name = name
 class MainCharacter(character):
     def __init__(self):
-        super().__init__(health=50, name="CAPT> SPACE BOY")
+        super().__init__(health=50, name="CAPT. SPACE BOY")
 class Mechs(character):
     def __init__(self):
         super().__init__(health=50, name="Zombodroid")
@@ -131,4 +131,14 @@ def asteroid_navigation():
 
 # Run
 asteroid_navigation()
+
+# Ship ------------------------------------------
+Spaceship_energy = []
+Spaceship_shield_strenth = []
+Space_Station_survivors = []
+Space_Station_system_damage = []
+Alien_Ship_health = []
+Alien_Ship_damage = []
+
+
 
