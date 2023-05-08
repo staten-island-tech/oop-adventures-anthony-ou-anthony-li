@@ -4,55 +4,57 @@ from time import sleep
 #Enemies
 class character:
     def __init__(self, health, name):
-        class MainCharacter(character):
-            def __init__(self):
-                super().__init__(health=50, name="CAPT> SPACE BOY")
-        class Mechs(character):
-            def __init__(self):
-                 super().__init__(health=50, name="Zombodroid")
-                 self.damage = 50
-        class Bloater(character):
-            def __init__(self):
-                super().__init__(health=20, name="Bloater")
-                self.damage = 10
-        class Regurgitator(character):
-            def __init__(self):
-                super().__init__(health=10, name="Regurgitator")
-                self.damage = 10
-        class Necrosis(character):
-            def __init__(self):
-                super().__init__(health=10, name="Necrosis")
-                self.damage = 15
-        class Mothership(character):
-            def __init__(self):
-                super().__init__(health=100, name="Mothership")
-                self.damage = 20
+        self.health = health
+        self.name = name
+class MainCharacter(character):
+    def __init__(self):
+        super().__init__(health=50, name="CAPT> SPACE BOY")
+class Mechs(character):
+    def __init__(self):
+        super().__init__(health=50, name="Zombodroid")
+        self.damage = 50
+class Bloater(character):
+    def __init__(self):
+        super().__init__(health=20, name="Bloater")
+        self.damage = 10
+class Regurgitator(character):
+    def __init__(self):
+        super().__init__(health=10, name="Regurgitator")
+        self.damage = 10
+class Necrosis(character):
+    def __init__(self):
+        super().__init__(health=10, name="Necrosis")
+        self.damage = 15
+class Mothership(character):
+    def __init__(self):
+        super().__init__(health=100, name="Mothership")
+        self.damage = 20
 ##Weapons
 class weapon:
     def __init__(self, damage, name):
         self.damage = damage
         self.name = name
-        class Punch(weapon):
-            def __init__(self):
-                super().__init__(damage=2, name="Punch")
-        class Kick(weapon):
-            def __init__(self):
-                super().__init__(damage = 3, name="Ground_Kick")
-        class Knife(weapon):
-            def __init__(self):
-                super().__init__(damage=15, name="Lightsaber")
-        class Flamethrower(weapon):
-            def __init__(self):
-                damage = 15
-                super().__init__(damage=15, name="Ronson_WP_Flamethrower")
-        class Sniper(weapon):
-            def __init__(self):
-                damage = 10
-                super().__init__(damage=10, name="Hornet")
-        class Plasma(weapon):
-            def __init__(self):
-                damage = 20
-                super().__init__(damage=20, name="CM_Gigavolt")
+class Punch(weapon):
+    def __init__(self):
+        super().__init__(damage=2, name="Punch")
+class Kick(weapon):
+    def __init__(self):
+        super().__init__(damage = 3, name="Ground_Kick")
+class Knife(weapon):
+    def __init__(self):
+        super().__init__(damage=15, name="Lightsaber")
+class Flamethrower(weapon):
+    def __init__(self):
+        damage = 15
+        super().__init__(damage=15, name="Ronson_WP_Flamethrower")
+class Sniper(weapon):
+    def __init__(self):
+        damage = 10
+        super().__init__(damage=10, name="Hornet")
+class Plasma(weapon):
+    def __init__(self):
+        damage = 20
+        super().__init__(damage=20, name="CM_Gigavolt")
 #Spaceship player's ship
 class Spaceship:
     def __init__(self, energy, shield_strength):
@@ -93,7 +95,7 @@ def asteroid_navigation():
     print('B. Call for backup')
     choice = input('Pick your choice (A/B): ').upper()
 
-
+#Error Handling 
     while choice not in ['A','B']:
         print('Invalid input, please enter A or B')
         sleep(0.5)
@@ -114,9 +116,6 @@ def asteroid_navigation():
                 sleep(1.5)
                 print('You have successfully passed the Asteroid Field, you have now reached the ship')
                 break
-
-
-
 
         # Handle choice B
     elif choice == 'B':
