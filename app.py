@@ -1,5 +1,4 @@
 import random
-from enimies 
 from time import sleep
 
 #Enemies
@@ -8,7 +7,7 @@ class character:
         self.health = health
         self.name = name
         self.damage = damage
-class MainCharacter(character):
+class Player(character):
     def __init__(self):
         super().__init__(health=50, name="CAPT> SPACE BOY")
 class Mechs(character):
@@ -31,9 +30,10 @@ class weapon:
     def __init__(self, damage, name):
         self.damage = damage
         self.name = name
-class Punch(weapon):
+class Laser(weapon):
     def __init__(self):
-        super().__init__(damage=2, name="Punch")
+        super().__init__(damage=10, name="Hotspot")
+        super().__init__(damage=10, name="Proton Arc")
 class Kick(weapon):
     def __init__(self):
         super().__init__(damage = 3, name="Ground_Kick")
@@ -42,10 +42,11 @@ class Knife(weapon):
         super().__init__(damage=15, name="Lightsaber")
 class Flamethrower(weapon):
     def __init__(self):
-        super().__init__(damage=15, name="Ronson_WP_Flamethrower")
+        super().__init__(damage=7, name="Ronson_WP_Flamethrower")
 class Sniper(weapon):
     def __init__(self):
-        super().__init__(damage=10, name="Hornet")
+        super().__init__(damage=15, name="Hornet")
+        super().__init__(damage=15, name="RIA 75")
 class Plasma(weapon):
     def __init__(self):
         super().__init__(damage=20, name="CM_Gigavolt")
@@ -69,7 +70,10 @@ class Alien_Ship:
 
 # Start of game
 class Space_Explorer:
-        def __init__()
+        def __init__(self):
+            self.Main_Character = Player
+            self.aliens = [Mechs, Bloater, Regurgitator, Necrosis]
+            self.mothership = [Mothership]
         
         
         def start():
