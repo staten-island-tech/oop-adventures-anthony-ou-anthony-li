@@ -135,4 +135,10 @@ class Space_Explorer:
         # Run
         asteroid_navigation()
 
+<<<<<<< HEAD
+# Run
+asteroid_navigation()
+print(MainCharacter("name"))
+=======
 
+>>>>>>> 2301db6ed83d376a06f9407bef27a65e044f81c2
