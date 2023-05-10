@@ -85,7 +85,12 @@ class Space_Explorer:
             sleep(1.5)
         start()
 
-        
+        def choose_weapon(self):
+            while self.current_weapon == None:
+                weapon_choice = input('Enter in your weapon choice')
+                self.current_weapon = weapon(weapon_choice)
+                if self.current_weapon == None:
+                    print('Invalid weapon choice, please enter in a valid weapon')
 
         #Naviage through the asteroids
         def asteroid_navigation():
@@ -131,3 +136,4 @@ class Space_Explorer:
 
         # Run
         asteroid_navigation()
+        choose_weapon()
