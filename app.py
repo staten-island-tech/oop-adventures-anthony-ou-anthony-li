@@ -34,9 +34,6 @@ class Laser(weapon):
     def __init__(self):
         super().__init__(damage=10, name="Hotspot")
         super().__init__(damage=10, name="Proton Arc")
-class Kick(weapon):
-    def __init__(self):
-        super().__init__(damage = 3, name="Ground_Kick")
 class Knife(weapon):
     def __init__(self):
         super().__init__(damage=15, name="Lightsaber")
@@ -88,8 +85,8 @@ class Space_Explorer:
             sleep(1.5)
         start()
 
-        def get_weapon():
-            
+        
+
         #Naviage through the asteroids
         def asteroid_navigation():
             print('What do you want to do')
@@ -134,11 +131,3 @@ class Space_Explorer:
 
         # Run
         asteroid_navigation()
-
-<<<<<<< HEAD
-# Run
-asteroid_navigation()
-print(MainCharacter("name"))
-=======
-
->>>>>>> 2301db6ed83d376a06f9407bef27a65e044f81c2
