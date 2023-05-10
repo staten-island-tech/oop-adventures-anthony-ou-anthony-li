@@ -9,7 +9,7 @@ class character:
         self.damage = damage
 class Player(character):
     def __init__(self):
-        super().__init__(health=50, name="CAPT> SPACE BOY")
+        super().__init__(health=50, name="CAPT> SPACE BOY", danage = 3)
 class Mechs(character):
     def __init__(self):
         super().__init__(health=50, name="Zombodroid", damage = 20)
@@ -18,7 +18,7 @@ class Bloater(character):
         super().__init__(health=20, name="Bloater", danage = 10)
 class Regurgitator(character):
     def __init__(self):
-        super().__init__(health=10, name="Regurgitator", damage = 0)
+        super().__init__(health=10, name="Regurgitator", damage = 10)
 class Necrosis(character):
     def __init__(self):
         super().__init__(health=10, name="Necrosis", damage = 15)
@@ -74,8 +74,7 @@ class Space_Explorer:
             self.Main_Character = Player
             self.aliens = [Mechs, Bloater, Regurgitator, Necrosis]
             self.mothership = [Mothership]
-        
-        
+
         def start():
             print('Space Explorer')
             sleep(1)
@@ -89,6 +88,8 @@ class Space_Explorer:
             sleep(1.5)
         start()
 
+        def get_weapon():
+            
         #Naviage through the asteroids
         def asteroid_navigation():
             print('What do you want to do')
