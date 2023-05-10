@@ -131,4 +131,4 @@ def asteroid_navigation():
 
 # Run
 asteroid_navigation()
-
+print(MainCharacter("name"))
