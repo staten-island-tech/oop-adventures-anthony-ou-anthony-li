@@ -9,22 +9,23 @@ class character:
         self.damage = damage
 class Player(character):
     def __init__(self):
-        super().__init__(health=50, name="CAPT> SPACE BOY")
+        super().__init__(health=50, name="CAPT> SPACE BOY", damage = 3)
 class Mechs(character):
     def __init__(self):
         super().__init__(health=50, name="Zombodroid", damage = 20)
 class Bloater(character):
     def __init__(self):
-        super().__init__(health=20, name="Bloater", danage = 10)
+        super().__init__(health=20, name="Bloater", damage = 10)
 class Regurgitator(character):
     def __init__(self):
-        super().__init__(health=10, name="Regurgitator", damage = 0)
+        super().__init__(health=10, name="Regurgitator", damage = 10)
 class Necrosis(character):
     def __init__(self):
         super().__init__(health=10, name="Necrosis", damage = 15)
 class Mothership(character):
     def __init__(self):
         super().__init__(health=100, name="Mothership", damage = 20)
+
 ##Weapons
 class weapon:
     def __init__(self, damage, name):
@@ -32,11 +33,7 @@ class weapon:
         self.name = name
 class Laser(weapon):
     def __init__(self):
-        super().__init__(damage=10, name="Hotspot")
         super().__init__(damage=10, name="Proton Arc")
-class Kick(weapon):
-    def __init__(self):
-        super().__init__(damage = 3, name="Ground_Kick")
 class Knife(weapon):
     def __init__(self):
         super().__init__(damage=15, name="Lightsaber")
@@ -54,7 +51,7 @@ class Plasma(weapon):
 class Spaceship:
     def __init__(self, energy, shield_strength):
         self.energy = energy
-        self.shield_strenth = shield_strength
+        self.shield_strength = shield_strength
 
 #Space Station Under attack
 class Space_Station:
@@ -69,14 +66,13 @@ class Alien_Ship:
         self.damage = damage
 
 # Start of game
-class Space_Explorer:
+class Space:
         def __init__(self):
             self.Main_Character = Player
             self.aliens = [Mechs, Bloater, Regurgitator, Necrosis]
             self.mothership = [Mothership]
-        
-        
-        def start():
+
+        def start(self):
             print('Space Explorer')
             sleep(1)
             print('You are a captain to a spaceship.')
@@ -87,57 +83,28 @@ class Space_Explorer:
             sleep(1)
             print('The message is obscure, but you can make out that they are under attack by aliens.')
             sleep(1.5)
-        start()
 
-        #Naviage through the asteroids
-        def asteroid_navigation():
-            print('What do you want to do')
-            sleep(2)
-            print('A. Go through Asteroid field until you find ship')
-            print('B. Call for backup')
-            choice = input('Pick your choice (A/B): ').upper()
-
-        #Error Handling 
-            while choice not in ['A','B']:
-                print('Invalid input, please enter A or B')
-                sleep(0.5)
-                choice = input('Pick your choice (A/B): ').upper()
-            
-            # Handle choice A
-            if choice == 'A':
-                print('Be careful to dodge the asteroids, make sure to avoid collisions')
-                while choice == 'A': #loop until 2
-                    num = random.randint(1,2)
-                    if num != 2:
-                        print('Navigating through Asteroid Field')
-                        sleep(3)
-                        print('You are still navigating through the Asteroid Field')
-                    if num == 2:
-                        sleep(4)
-                        print('Passing Asteroid field')
-                        sleep(1.5)
-                        print('You have successfully passed the Asteroid Field, you have now reached the ship')
-                        break
-
-                # Handle choice B
-            elif choice == 'B':
-                while choice == 'B': #loop until 2
-                    num = random.randint(1,2)
-                    if num != 2:
-                        sleep(3)
-                        print('Connecting')
-                    if num == 2:
-                        sleep(3)
-                        print('Reinforcements are arriving soon')
-                        break
-
-        # Run
-        asteroid_navigation()
-
-<<<<<<< HEAD
-# Run
-asteroid_navigation()
-print(MainCharacter("name"))
-=======
-
->>>>>>> 2301db6ed83d376a06f9407bef27a65e044f81c2
+        def choose_weapon(self):
+            for all_weapons in weapon:
+                print(all_weapons)
+            while self.current_weapon is None:
+                weapon_choice = input('Enter in your weapon choice')
+                self.current_weapon = weapon(weapon_choice)
+                if self.current_weapon == None:
+                    print('Invalid weapon choice, please enter in a valid weapon')
+        
+        def get_weapon(self, name):
+            for weapon_choice in weapon:
+                if weapon_choice.lower() == name.lower():
+                    return weapon
+                
+                # Create a new Instance
+        def run(self):
+            self.start
+            self.choose_weapon
+            self.get_weapon
+     
+if Name == "main":
+    Game = Space()
+    Space.run()
+ 
