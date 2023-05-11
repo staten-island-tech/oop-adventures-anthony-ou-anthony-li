@@ -30,4 +30,4 @@ class Mothership(character):
 def mech_attack(self):
         print(self.damage(MainCharacter)-self.damage(Mechs))
 
-mech_attack()
+mech_attack(Mechs)
