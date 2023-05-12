@@ -9,7 +9,7 @@ class character:
         self.damage = damage
 class Player(character):
     def __init__(self):
-        super().__init__(health=50, name="CAPT> SPACE BOY", damage = 3)
+        super().__init__(health=150, name="CAPT> SPACE BOY", damage = 3)
 class Bloater(character):
     def __init__(self):
         super().__init__(health=20, name="Bloater", damage = 10)
@@ -62,7 +62,7 @@ class Alien_Ship:
 class space:
     def __init__(self):
         self.Main_Character = Player
-        self.aliens = [Mechs, Bloater, Regurgitator, Necrosis]
+        self.aliens = [Bloater, Regurgitator, Necrosis]
         self.mothership = [Mothership]
         self.current_weapon = None
         self.current_health = [150]
