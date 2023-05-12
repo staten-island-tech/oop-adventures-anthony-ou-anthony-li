@@ -27,3 +27,4 @@ def mech_attack(damage):
     health = Player(damage)-Mechs(damage)
     print(f"Your current health is {health}")
 
+    mech_attack(damage)
