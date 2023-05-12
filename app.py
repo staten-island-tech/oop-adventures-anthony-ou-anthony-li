@@ -10,9 +10,6 @@ class character:
 class Player(character):
     def __init__(self):
         super().__init__(health=50, name="CAPT> SPACE BOY", damage = 3)
-class Mechs(character):
-    def __init__(self):
-        super().__init__(health=50, name="Zombodroid", damage = 20)
 class Bloater(character):
     def __init__(self):
         super().__init__(health=20, name="Bloater", damage = 10)
@@ -37,13 +34,9 @@ class Laser(weapon):
 class Knife(weapon):
     def __init__(self):
         super().__init__(damage=15, name="Lightsaber")
-class Flamethrower(weapon):
-    def __init__(self):
-        super().__init__(damage=7, name="Ronson_WP_Flamethrower")
 class Sniper(weapon):
     def __init__(self):
         super().__init__(damage=15, name="Hornet")
-        super().__init__(damage=15, name="RIA 75")
 class Plasma(weapon):
     def __init__(self):
         super().__init__(damage=20, name="CM_Gigavolt")
