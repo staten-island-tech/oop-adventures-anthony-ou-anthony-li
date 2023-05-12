@@ -66,45 +66,41 @@ class Alien_Ship:
         self.damage = damage
 
 # Start of game
-class Space:
-        def __init__(self):
-            self.Main_Character = Player
-            self.aliens = [Mechs, Bloater, Regurgitator, Necrosis]
-            self.mothership = [Mothership]
+class space:
+    def __init__(self):
+        self.Main_Character = Player
+        self.aliens = [Mechs, Bloater, Regurgitator, Necrosis]
+        self.mothership = [Mothership]
+        self.current_weapon = None
 
-        def start(self):
-            print('Space Explorer')
-            sleep(1)
-            print('You are a captain to a spaceship.')
-            sleep(1)
-            print('You are your crew are sent on a mission to explore a distant planet.')
-            sleep(1)
-            print('Along the way, you receive a distress call from a nearby ship.')
-            sleep(1)
-            print('The message is obscure, but you can make out that they are under attack by aliens.')
-            sleep(1.5)
+    def start(self):
+        print('Space Explorer')
+        sleep(1)
+        print('You are a captain to a spaceship.')
+        sleep(1)
+        print('You are your crew are sent on a mission to explore a distant planet.')
+        sleep(1)
+        print('Along the way, you receive a distress call from a nearby ship.')
+        sleep(1)
+        print('The message is obscure, but you can make out that they are under attack by aliens.')
+        sleep(1.5)
 
-        def choose_weapon(self):
-            for all_weapons in weapon:
-                print(all_weapons)
-            while self.current_weapon is None:
-                weapon_choice = input('Enter in your weapon choice')
-                self.current_weapon = weapon(weapon_choice)
-                if self.current_weapon == None:
-                    print('Invalid weapon choice, please enter in a valid weapon')
-        
-        def get_weapon(self, name):
-            for weapon_choice in weapon:
-                if weapon_choice.lower() == name.lower():
-                    return weapon
-                
-                # Create a new Instance
-        def run(self):
-            self.start
-            self.choose_weapon
-            self.get_weapon
-     
-if Name == "main":
-    Game = Space()
-    Space.run()
- 
+    def choose_weapon(self):
+        for all_weapons in weapon:
+            print(all_weapons)
+        while self.current_weapon is None:
+            weapon_choice = input('Enter in your weapon choice')
+            self.current_weapon = weapon(weapon_choice)
+            if self.current_weapon == None:
+                print('Invalid weapon choice, please enter in a valid weapon')
+    
+    def get_weapon(self, name):
+        for weapon_choice in weapon:
+            if weapon_choice.lower() == name.lower():
+                return weapon
+            
+    def display_weapon(self):
+        print('You have the following weapons')
+        sleep(1)
+        for every_weapon in self.current_weapon:
+            print(f'You have {every_weapon} equipped')
