@@ -9,13 +9,10 @@ class character:
         self.damage = damage
 class Player(character):
     def __init__(self):
-        super().__init__(health=50, name="CAPT> SPACE BOY", damage = 3)
+        super().__init__(health=150, name="CAPT> SPACE BOY", damage = 0)
 class Mechs(character):
     def __init__(self):
         super().__init__(health=50, name="Zombodroid", damage = 20)
-class Bloater(character):
-    def __init__(self):
-        super().__init__(health=20, name="Bloater", damage = 10)
 class Regurgitator(character):
     def __init__(self):
         super().__init__(health=10, name="Regurgitator", damage = 10)
@@ -34,15 +31,11 @@ class weapon:
 class Laser(weapon):
     def __init__(self):
         super().__init__(damage=10, name="Proton Arc")
-class Knife(weapon):
-    def __init__(self):
-        super().__init__(damage=15, name="Lightsaber")
 class Flamethrower(weapon):
     def __init__(self):
         super().__init__(damage=7, name="Ronson_WP_Flamethrower")
 class Sniper(weapon):
     def __init__(self):
-        super().__init__(damage=15, name="Hornet")
         super().__init__(damage=15, name="RIA 75")
 class Plasma(weapon):
     def __init__(self):
@@ -69,10 +62,10 @@ class Alien_Ship:
 class space:
     def __init__(self):
         self.Main_Character = Player
-        self.aliens = [Mechs, Bloater, Regurgitator, Necrosis]
+        self.aliens = [Mechs, Regurgitator, Necrosis]
         self.mothership = [Mothership]
         self.current_weapon = None
-        self.current_health = [150]
+        self.health = Player.health
 
     def start(self):
         print('Space Explorer')
@@ -151,4 +144,4 @@ def asteroid_navigation(self):
                         break
 
 # Run
-asteroid_navigation()
+
