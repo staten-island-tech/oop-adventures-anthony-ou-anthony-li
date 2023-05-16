@@ -7,9 +7,9 @@ class character:
         self.health = health
         self.name = name
         self.damage = damage
-class Player(character):
+class Captain(character):
     def __init__(self):
-        super().__init__(health=150, name="CAPT> SPACE BOY", damage = 0)
+        super().__init__(health=150, name="Captain", damage = 0)
     def __str__(self):
         return f"{self.health}, {self.name}, {self.damage}"
 class Bloater(character):
@@ -74,11 +74,11 @@ class Alien_Ship:
 # Start of game
 class space:
     def __init__(self):
-        self.Main_Character = Player
+        self.Main_Character = Captain
         self.aliens = [Bloater, Regurgitator, Necrosis]
         self.mothership = [Mothership]
         self.current_weapon = None
-        self.health = Player.health
+        self.health = [150]
 
     def start(self):
         print('Space Explorer')
@@ -156,5 +156,5 @@ def asteroid_navigation(self):
                 print('Reinforcements are arriving soon')
                 break
 
-# Run
-asteroid_navigation()
+game = space()
+game.asteroid_navigation()
