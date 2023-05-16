@@ -113,48 +113,53 @@ class space:
             print(f'You have {every_weapon} equipped')
 
 
-
 # Choice, navigate to ship
-def asteroid_navigation(self):
-    print('What do you want to do')
-    sleep(2)
-    print('A. Go through Asteroid field until you find ship')
-    print('B. Call for backup')
-    choice = input('Pick your choice (A/B): ').upper()
-
-#Error Handling 
-    while choice not in ['A','B']:
-        print('Invalid input, please enter A or B')
-        sleep(0.5)
+    def asteroid_navigation(self):
+        print('What do you want to do')
+        sleep(2)
+        print('A. Go through Asteroid field until you find ship')
+        print('B. Call for backup')
         choice = input('Pick your choice (A/B): ').upper()
-    
-    # Handle choice A
-    if choice == 'A':
-        print('Be careful to dodge the asteroids, make sure to avoid collisions')
-        while choice == 'A': #loop until 2
-            num = random.randint(1,2)
-            if num != 2:
-                print('Navigating through Asteroid Field')
-                sleep(3)
-                print('You are still navigating through the Asteroid Field')
-            if num == 2:
-                sleep(4)
-                print('Passing Asteroid field')
-                sleep(1.5)
-                print('You have successfully passed the Asteroid Field, you have now reached the ship')
-                break
 
-        # Handle choice B
-    elif choice == 'B':
-        while choice == 'B': #loop until 2
-            num = random.randint(1,2)
-            if num != 2:
-                sleep(3)
-                print('Connecting')
-            if num == 2:
-                sleep(3)
-                print('Reinforcements are arriving soon')
-                break
+    #Error Handling 
+        while choice not in ['A','B']:
+            print('Invalid input, please enter A or B')
+            sleep(0.5)
+            choice = input('Pick your choice (A/B): ').upper()
+        
+        # Handle choice A
+        if choice == 'A':
+            print('Be careful to dodge the asteroids, make sure to avoid collisions')
+            while choice == 'A': #loop until 2
+                num = random.randint(1,2)
+                if num != 2:
+                    print('Navigating through Asteroid Field')
+                    sleep(3)
+                    print('You are still navigating through the Asteroid Field')
+                if num == 2:
+                    sleep(4)
+                    print('Passing Asteroid field')
+                    sleep(1.5)
+                    print('You have successfully passed the Asteroid Field, you have now reached the ship')
+                    break
+
+            # Handle choice B
+        elif choice == 'B':
+            while choice == 'B': #loop until 2
+                num = random.randint(1,2)
+                if num != 2:
+                    sleep(3)
+                    print('Connecting')
+                if num == 2:
+                    sleep(3)
+                    print('Reinforcements are arriving soon')
+                    break
+
+
 
 game = space()
+game.start()
+game.choose_weapon()
+game.get_weapon()
+game.display_weapon()
 game.asteroid_navigation()
