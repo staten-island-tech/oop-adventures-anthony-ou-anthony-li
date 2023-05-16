@@ -19,15 +19,12 @@ class Necrosis(character):
 class Mothership(character):
     def __init__(self, health, name, damage):
         super().__init__(health, name, damage)
-        
-bloater = Bloater(20, "Bloater", 10)
-player = Player(150, "CAPT> SPACE BOY", 0)
-regurgitator = Regurgitator(20, "Regurgitator", 10)
-necrosis = Necrosis(20, "Necrosis", 15)
-mothership = Mothership(100, "Mothership", 20)
-
-enemy = bloater
+##Functions
 def enemy_attack():
+    bloater = Bloater(20, "Bloater", 10)
+    player = Player(150, "CAPT> SPACE BOY", 0)
+    regurgitator = Regurgitator(20, "Regurgitator", 10)
+    necrosis = Necrosis(20, "Necrosis", 15)
     if enemy == bloater:
         health = player.health - bloater.damage
         print(f"Your current health now is {health}")
@@ -40,4 +37,28 @@ def enemy_attack():
     else:
         print("There are no enemies in your sight.")
 
-enemy_attack()
+def boss_fight():
+    player = Player(150, "CAPT> SPACE BOY", 0)
+    mothership = Mothership(100, "Mothership", 20)
+    if player.health <= 20:
+        print("You were instantly annihilated by the motherships death rays!")
+        print("Game Over!")
+    elif player.health >= 20:
+        while player.health >= 20:
+##Weapons
+class weapon:
+    def __init__(self, damage, name):
+        self.damage = damage
+        self.name = name
+class Laser(weapon):
+    def __init__(self, damage, name):
+        super().__init__(damage=10, name="Proton Arc")
+class Flamethrower(weapon):
+    def __init__(self):
+        super().__init__(damage=7, name="Ronson_WP_Flamethrower")
+class Sniper(weapon):
+    def __init__(self):
+        super().__init__(damage=15, name="RIA 75")
+class Plasma(weapon):
+    def __init__(self):
+        super().__init__(damage=20, name="CM_Gigavolt")
