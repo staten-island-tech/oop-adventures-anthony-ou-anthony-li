@@ -61,7 +61,7 @@ plasma = Plasma(20, "CM_Gigavolt")
 Choices = ["Laser", "Flamethrower", "Sniper", "Plasma"]
 weapons = []
 def weapon_selection():
-    while len(weapons) <= 2:
+    while len(weapons) < 2:
         for weapon in Choices:
             print(weapon)
         choice = input("What would you like?")
