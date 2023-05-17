@@ -41,39 +41,46 @@ class weapon:
         self.name = name
 class Laser(weapon):
     def __init__(self, damage, name):
-        super().__init__(damage=10, name="Proton Arc")
+        super().__init__(damage, name)
 class Flamethrower(weapon):
-    def __init__(self):
-        super().__init__(damage=7, name="Ronson_WP_Flamethrower")
+    def __init__(self, damage, name):
+        super().__init__(damage, name)
 class Sniper(weapon):
-    def __init__(self):
-        super().__init__(damage=15, name="RIA 75")
+    def __init__(self, damage, name):
+        super().__init__(damage, name)
 class Plasma(weapon):
-    def __init__(self):
-        super().__init__(damage=20, name="CM_Gigavolt")
+    def __init__(self, damage, name):
+        super().__init__(damage, name)
 
 ##Weapon_Selection
+laser = Laser(10, "Proton Arc")
+flamethrower = Flamethrower(7, "Ronson_WP_Flamethrower")
+sniper = Sniper(15, "RIA 75")
+plasma = Plasma(20, "CM_Gigavolt")
+
 Choices = ["Laser", "Flamethrower", "Sniper", "Plasma"]
 weapons = []
 def weapon_selection():
-    if len(weapons) >= 2:
-        print("Invalid, user has too many weapons.")
-    else:
+    while len(weapons) <= 2:
         for weapon in Choices:
             print(weapon)
         choice = input("What would you like?")
         if choice == "Laser":
-            print("Stats: 10 damage, name: Proton Arc")
-            weapons.append(Laser)
+            print(laser.name)
+            print(laser.damage)
+            weapons.append("Laser")
         elif choice == "Flamethrower":
-            print("Stats: 7 damage, name: Ronson_WP_Flamethrower")
-            weapons.append(Flamethrower)
+            print(flamethrower.name)
+            print(flamethrower.damage)
+            weapons.append("Flamethrower")
         elif choice == "Sniper":
-            print("Stats: 15 damage, name: RIA 75")
-            weapons.append(Sniper)
+            print(sniper.name)
+            print(sniper.damage)
+            weapons.append("Sniper")
         elif choice == "Plasma":
-            print("Stats: 20 damage, name: CM_Gigavolt")
-            weapons.append(Plasma)
+            print(plasma.name)
+            print(plasma.damage)
+            weapons.append("Plasma")
         else:
             print("Weapon choice is invalid, please try again.")
 
