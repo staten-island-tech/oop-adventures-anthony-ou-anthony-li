@@ -42,9 +42,6 @@ class weapon:
 class Laser(weapon):
     def __init__(self, damage, name):
         super().__init__(damage, name)
-class Flamethrower(weapon):
-    def __init__(self, damage, name):
-        super().__init__(damage, name)
 class Sniper(weapon):
     def __init__(self, damage, name):
         super().__init__(damage, name)
@@ -54,9 +51,8 @@ class Plasma(weapon):
 
 ##Weapon_Selection
 laser = Laser(10, "Proton Arc")
-flamethrower = Flamethrower(7, "Ronson_WP_Flamethrower")
-sniper = Sniper(15, "RIA 75")
-plasma = Plasma(20, "CM_Gigavolt")
+sniper = Sniper(15, "Hornet")
+plasma = Plasma(10, "CM_Gigavolt")
 
 Choices = ["Laser", "Flamethrower", "Sniper", "Plasma"]
 weapons = []
@@ -69,10 +65,6 @@ def weapon_selection():
             print(laser.name)
             print(laser.damage)
             weapons.append("Laser")
-        elif choice == "Flamethrower":
-            print(flamethrower.name)
-            print(flamethrower.damage)
-            weapons.append("Flamethrower")
         elif choice == "Sniper":
             print(sniper.name)
             print(sniper.damage)
@@ -84,4 +76,7 @@ def weapon_selection():
         else:
             print("Weapon choice is invalid, please try again.")
 
-weapon_selection()
+def picking_weapon():
+    for weapon in weapons:
+        print(weapon)
+        
