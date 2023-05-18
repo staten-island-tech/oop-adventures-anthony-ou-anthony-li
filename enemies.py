@@ -33,7 +33,7 @@ def boss_fight():
         print("Game Over!")
     elif player.health >= 20:
         while player.health >= 20:
-            weapon 
+            
 ##Weapons
 class weapon:
     def __init__(self, damage, name):
@@ -76,7 +76,14 @@ def weapon_selection():
         else:
             print("Weapon choice is invalid, please try again.")
 
-def picking_weapon():
+def incombat_weapon():
     for weapon in weapons:
         print(weapon)
+    choice = input("What would you like?")
+    if choice in weapons:
+        print(f"You will now use {choice} while in combat")
+        
+weapon_selection()
+incombat_weapon()
+
         
