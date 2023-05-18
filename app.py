@@ -33,26 +33,26 @@ class Mothership(character):
     def __str__(self):
         return f"{self.health}, {self.name}, {self.damage}"
 
-##Weapons
+#Weapons
 class weapon:
     def __init__(self, damage, name):
         self.damage = damage
         self.name = name
-class Laser(weapon):
+class Laser_Gun(weapon):
     def __init__(self):
-        super().__init__(damage=10, name="Proton Arc")
+        super().__init__(damage=10, name="Laser_Gun")
     def __str__(self):
-        return f"{self.name}, {self.damage}"
-class Sniper(weapon):
+        return f"{self.name}: {self.damage} {'damage'}"
+class Sniper_Gun(weapon):
     def __init__(self):
-        super().__init__(damage=15, name="Hornet")
+        super().__init__(damage=15, name="Sniper_Gun")
     def __str__(self):
-        return f"{self.name}, {self.damage}"
-class Plasma(weapon):
+        return f"{self.name}: {self.damage} {'damage'}"
+class Plasma_Gun(weapon):
     def __init__(self):
-        super().__init__(damage=20, name="CM_Gigavolt")
+        super().__init__(damage=10, name="Plasma_Gun")
     def __str__(self):
-        return f"{self.name}, {self.damage}"
+        return f"{self.name}: {self.damage} {'damage'}"
 #Spaceship player's ship
 class Spaceship:
     def __init__(self, energy, shield_strength):
@@ -93,18 +93,19 @@ class space:
         sleep(1.5)
 
     def choose_weapon(self):
-        for all_weapons in weapon:
-            print(all_weapons)
+        available_weapons = [Laser_Gun(), Sniper_Gun(), Plasma_Gun()]
+        for name in available_weapons:
+            print(name)
         while self.current_weapon is None:
-            weapon_choice = input('Enter in your weapon choice')
-            self.current_weapon = weapon(weapon_choice)
+            weapon_choice = input('Enter in your weapon choice: ')
+            self.current_weapon = self.get_weapon(weapon_choice)
             if self.current_weapon == None:
                 print('Invalid weapon choice, please enter in a valid weapon')
     
     def get_weapon(self, name):
         for weapon_choice in weapon:
-            if weapon_choice.lower() == name.lower():
-                return weapon.choice()
+            if weapon_choice.lower() == class.weapon.lower():
+                return weapon_choice()
             
     def display_weapon(self):
         print('You have the following weapons')
@@ -154,6 +155,7 @@ class space:
                     sleep(3)
                     print('Reinforcements are arriving soon')
                     break
+
 
 
 
