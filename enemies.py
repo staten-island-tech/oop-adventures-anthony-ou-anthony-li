@@ -24,15 +24,6 @@ bloater = Bloater(20, "Bloater", 10)
 player = Player(150, "CAPT> SPACE BOY", 0)
 regurgitator = Regurgitator(20, "Regurgitator", 10)
 necrosis = Necrosis(20, "Necrosis", 15)
-
-def boss_fight():
-    player = Player(150, "CAPT> SPACE BOY", 0)
-    mothership = Mothership(100, "Mothership", 20)
-    if player.health <= 20:
-        print("You were instantly annihilated by the motherships death rays!")
-        print("Game Over!")
-    elif player.health >= 20:
-        while player.health >= 20:
             
 ##Weapons
 class weapon:
@@ -54,7 +45,7 @@ laser = Laser(10, "Proton Arc")
 sniper = Sniper(15, "Hornet")
 plasma = Plasma(10, "CM_Gigavolt")
 
-Choices = ["Laser", "Flamethrower", "Sniper", "Plasma"]
+Choices = ["Laser", "Sniper", "Plasma"]
 weapons = []
 def weapon_selection():
     while len(weapons) < 2:
