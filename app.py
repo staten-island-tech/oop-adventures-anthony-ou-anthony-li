@@ -1,6 +1,5 @@
 import random
 from time import sleep
-
 #Enemies
 class character:
     def __init__(self, health, name, damage):
@@ -38,19 +37,19 @@ class weapon:
     def __init__(self, damage, name):
         self.damage = damage
         self.name = name
-class Laser_Gun(weapon):
+class Rifle(weapon):
     def __init__(self):
-        super().__init__(damage=10, name="Laser_Gun")
+        super().__init__(damage=10, name="Rifle")
     def __str__(self):
         return f"{self.name}: {self.damage} {'damage'}"
-class Sniper_Gun(weapon):
+class Sniper(weapon):
     def __init__(self):
-        super().__init__(damage=15, name="Sniper_Gun")
+        super().__init__(damage=15, name="Sniper")
     def __str__(self):
         return f"{self.name}: {self.damage} {'damage'}"
-class Plasma_Gun(weapon):
+class SMG(weapon):
     def __init__(self):
-        super().__init__(damage=10, name="Plasma_Gun")
+        super().__init__(damage=10, name="SMG")
     def __str__(self):
         return f"{self.name}: {self.damage} {'damage'}"
 #Spaceship player's ship
@@ -82,18 +81,13 @@ class space:
 
     def start(self):
         print('Space Explorer')
-        sleep(1)
         print('You are a captain to a spaceship.')
-        sleep(1)
         print('You are your crew are sent on a mission to explore a distant planet.')
-        sleep(1)
         print('Along the way, you receive a distress call from a nearby ship.')
-        sleep(1)
         print('The message is obscure, but you can make out that they are under attack by aliens.')
-        sleep(1.5)
 
     def choose_weapon(self):
-        available_weapons = [Laser_Gun(), Sniper_Gun(), Plasma_Gun()]
+        available_weapons = [Rifle(), Sniper(), SMG()]
         for name in available_weapons:
             print(name)
         while self.current_weapon is None:
@@ -103,21 +97,22 @@ class space:
                 print('Invalid weapon choice, please enter in a valid weapon')
     
     def get_weapon(self, name):
-        for weapon_choice in weapon:
-            if weapon_choice.lower() == class.weapon.lower():
-                return weapon_choice()
+        available_weapons = [Rifle(), Sniper(), SMG()]
+        for weapon_choice in available_weapons:
+            if weapon_choice.name.lower() == name.lower():
+                return weapon_choice
             
     def display_weapon(self):
-        print('You have the following weapons')
-        sleep(1)
-        for every_weapon in self.current_weapon:
-            print(f'You have {every_weapon} equipped')
+        if self.current_weapon is not None:
+            print('Your chosen weapon: ')
+            print(self.current_weapon)
+        else:
+            print('You have no weapons equipped')
 
 
 # Choice, navigate to ship
     def asteroid_navigation(self):
         print('What do you want to do')
-        sleep(2)
         print('A. Go through Asteroid field until you find ship')
         print('B. Call for backup')
         choice = input('Pick your choice (A/B): ').upper()
@@ -125,7 +120,6 @@ class space:
     #Error Handling 
         while choice not in ['A','B']:
             print('Invalid input, please enter A or B')
-            sleep(0.5)
             choice = input('Pick your choice (A/B): ').upper()
         
         # Handle choice A
@@ -158,10 +152,10 @@ class space:
 
 
 
+def main():
+    game = space()
+    game.choose_weapon()
+    game.display_weapon()
+    game.asteroid_navigation()
 
-game = space()
-game.start()
-game.choose_weapon()
-game.get_weapon()
-game.display_weapon()
-game.asteroid_navigation()
+main()
