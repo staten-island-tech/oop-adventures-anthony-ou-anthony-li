@@ -150,7 +150,6 @@ class space:
                     print('GAME OVER')
                     break
             quit()
-print('sdad')
         
 
 
