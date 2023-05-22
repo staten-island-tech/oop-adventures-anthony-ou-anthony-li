@@ -114,7 +114,7 @@ class space:
     def asteroid_navigation(self):
         print('What do you want to do')
         print('A. Go through Asteroid field until you find ship')
-        print('B. Call for backup')
+        print('B. Run away')
         choice = input('Pick your choice (A/B): ').upper()
 
     #Error Handling 
@@ -144,11 +144,14 @@ class space:
                 num = random.randint(1,2)
                 if num != 2:
                     sleep(3)
-                    print('Connecting')
+                    print('Running away')
                 if num == 2:
                     sleep(3)
-                    print('Reinforcements are arriving soon')
+                    print('GAME OVER')
                     break
+            quit()
+print('sdad')
+        
 
 
 
