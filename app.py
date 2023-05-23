@@ -1,5 +1,6 @@
 import random
 from time import sleep
+import sys
 #Enemies
 class character:
     def __init__(self, health, name, damage):
@@ -15,22 +16,17 @@ class Bloater(character):
     def __init__(self):
         super().__init__(health=20, name="Bloater", damage = 10)
     def __str__(self):
-        return f"{self.health}, {self.name}, {self.damage}"
+        return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
 class Regurgitator(character):
     def __init__(self):
         super().__init__(health=10, name="Regurgitator", damage = 10)
     def __str__(self):
-        return f"{self.health}, {self.name}, {self.damage}"
+        return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
 class Necrosis(character):
     def __init__(self):
         super().__init__(health=10, name="Necrosis", damage = 15)
     def __str__(self):
-        return f"{self.health}, {self.name}, {self.damage}"
-class Mothership(character):
-    def __init__(self):
-        super().__init__(health=100, name="Mothership", damage = 20)
-    def __str__(self):
-        return f"{self.health}, {self.name}, {self.damage}"
+        return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
 
 #Weapons
 class weapon:
@@ -52,30 +48,12 @@ class SMG(weapon):
         super().__init__(damage=10, name="SMG")
     def __str__(self):
         return f"{self.name}: {self.damage} {'damage'}"
-#Spaceship player's ship
-class Spaceship:
-    def __init__(self, energy, shield_strength):
-        self.energy = energy
-        self.shield_strength = shield_strength
-
-#Space Station Under attack
-class Space_Station:
-    def __init__(self, surviors, system_damage):
-        self.survivors = surviors
-        self.system_damage = system_damage
-
-#Alien Ship         # Space Station V Alien Ship
-class Alien_Ship:
-    def __init__(self, health, damage):
-        self.health = health
-        self.damage = damage
 
 # Start of game
 class space:
     def __init__(self):
         self.Main_Character = Captain
         self.aliens = [Bloater, Regurgitator, Necrosis]
-        self.mothership = [Mothership]
         self.current_weapon = None
         self.health = [150]
 
@@ -106,9 +84,9 @@ class space:
         if self.current_weapon is not None:
             print('Your chosen weapon: ')
             print(self.current_weapon)
+            sleep(3)
         else:
             print('You have no weapons equipped')
-
 
 # Choice, navigate to ship
     def asteroid_navigation(self):
@@ -147,17 +125,30 @@ class space:
                     print('Running away')
                 if num == 2:
                     sleep(3)
-                    print('GAME OVER')
+                    print('You ran away')
                     break
-            quit()
+        if choice == 'B':
+            sys.exit('GAME OVER')
         
-
+    def player_v_alien(self):
+        damage_dealt = self.current_weapon
+        aliens = [Necrosis(), Regurgitator(), Bloater()]
+        print('There a a few types of aliens: ')
+        for names in aliens:
+            print(names)
+        alien_choose = random.randint(1,3)
+        if alien_choose == 1:
+            print('Necrosis')
+        elif alien_choose == 2:
+            print('Bloater')
+        elif alien_choose == 3:
+            print('Regurgigator')
+        
+                
 
 
 def main():
     game = space()
-    game.choose_weapon()
-    game.display_weapon()
-    game.asteroid_navigation()
+    game.player_v_alien()
 
 main()
