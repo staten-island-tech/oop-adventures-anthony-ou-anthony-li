@@ -152,15 +152,15 @@ class space:
             quit()
     
     ##Mission
-    def save_ship(self):
-        print("You must save the crew! The ship has been swarmed by alien creatures.")
-        enemies = [Bloater(), Necrosis(), Regurgitator()]
-        while 1 == 1:        
-            for x in enemies:
-                print(x)
-            health = self.health - Bloater.damage
-            print(f"Your current health is {health}.")
+    def bloater_attack(self):
+        while self.health > 0:
+            health = self.health - Bloater.health
+            print(f"Captain lost {health} health")
             attack = Bloater.health - self.current_weapon
+            print(f"Bloater lost {attack} health")
+    def save_ship(self):
+        while self.health > 0:
+                        
 
 def main():
     game = space()
@@ -168,7 +168,8 @@ def main():
     game.display_weapon()
     game.asteroid_navigation()
     game.save_ship()
+    game.bloater_attack
 
-main()
+
 
         
