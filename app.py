@@ -52,10 +52,10 @@ class SMG(weapon):
 # Start of game
 class space:
     def __init__(self):
-        self.Main_Character = Captain
+        self.Main_Character = Captain()
         self.aliens = [Bloater, Regurgitator, Necrosis]
         self.current_weapon = None
-        self.health = [150]
+        self.health = Captain().health
 
     def start(self):
         print('Space Explorer')
@@ -131,18 +131,19 @@ class space:
             sys.exit('GAME OVER')
         
     def player_v_alien(self):
+        player = Captain().health
+        print(player)
+        aliens_killed = 0
         damage_dealt = self.current_weapon
-        aliens = [Necrosis(), Regurgitator(), Bloater()]
+        aliens = [Necrosis, Regurgitator, Bloater]
         print('There a a few types of aliens: ')
         for names in aliens:
             print(names)
-        alien_choose = random.randint(1,3)
-        if alien_choose == 1:
-            print('Necrosis')
-        elif alien_choose == 2:
-            print('Bloater')
-        elif alien_choose == 3:
-            print('Regurgigator')
+        alien_choose = random.choice(aliens)
+        while player > 0 and  aliens_killed < 10:
+            print(f"A {alien_choose} is coming after you")
+            break
+
         
                 
 
