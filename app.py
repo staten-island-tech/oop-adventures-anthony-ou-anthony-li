@@ -135,7 +135,7 @@ class space:
         print(player)
         aliens_killed = 0
         damage_dealt = self.current_weapon
-        aliens = [Necrosis, Regurgitator, Bloater]
+        aliens = ['Necrosis', 'Regurgitator', 'Bloater']
         print('There a a few types of aliens: ')
         for names in aliens:
             print(names)
