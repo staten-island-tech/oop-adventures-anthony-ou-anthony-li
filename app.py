@@ -1,7 +1,8 @@
 import random
 from time import sleep
 import sys
-#Enemies
+
+#Character
 class character:
     def __init__(self, health, name, damage):
         self.health = health
@@ -12,17 +13,24 @@ class Captain(character):
         super().__init__(health=150, name="Captain", damage = 0)
     def __str__(self):
         return f"{self.health}, {self.name}, {self.damage}"
-class Bloater(character):
+
+ #Aliens   
+class Aliens:
+    def __init__(self, health, name, damage):
+        self.health = health
+        self.name = name
+        self.damage = damage
+class Bloater(Aliens):
     def __init__(self):
         super().__init__(health=20, name="Bloater", damage = 10)
     def __str__(self):
         return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
-class Regurgitator(character):
+class Regurgitator(Aliens):
     def __init__(self):
         super().__init__(health=10, name="Regurgitator", damage = 10)
     def __str__(self):
         return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
-class Necrosis(character):
+class Necrosis(Aliens):
     def __init__(self):
         super().__init__(health=10, name="Necrosis", damage = 15)
     def __str__(self):
@@ -132,15 +140,13 @@ class space:
         
     def player_v_alien(self):
         player = Captain().health
-        print(player)
         aliens_killed = 0
-        damage_dealt = self.current_weapon
-        aliens = [Necrosis, Regurgitator, Bloater]
-        print('There a a few types of aliens: ')
-        for names in aliens:
-            print(names)
-        alien_choose = random.choice(aliens)
+    
+    #Loop for until you die or Aliens killed is 10 
         while player > 0 and  aliens_killed < 10:
+            alien_choose = random.choice(self.aliens)
+    # Display Aleins info 
+            print(Aliens.name)
             print(f"A {alien_choose} is coming after you")
             break
 
