@@ -145,7 +145,7 @@ class space:
     #Loop for until you die or Aliens killed is 10 
         while player > 0 and  aliens_killed < 10:
             alien_choose = random.choice(self.aliens)
-    # Display Aleins info 
+    # Display Aliens info 
             print(Aliens.name)
             print(f"A {alien_choose} is coming after you")
             break
