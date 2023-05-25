@@ -139,16 +139,23 @@ class space:
             sys.exit('GAME OVER')
         
     def player_v_alien(self):
+        self.aliens = [Bloater(), Regurgitator(), Necrosis()]
         player = Captain().health
-        aliens_killed = 0
+        aliens_killed = []
     
     #Loop for until you die or Aliens killed is 10 
-        while player > 0 and  aliens_killed < 10:
+        while player > 0 and len(aliens_killed) <= 10:
             alien_choose = random.choice(self.aliens)
     # Display Aliens info 
-            print(Aliens.name)
-            print(f"A {alien_choose} is coming after you")
-            break
+            print(f"A {alien_choose.name} is coming after you")
+            health = player - alien_choose.damage
+            print(f"Health: {health}")
+            attack = alien_choose.health - Captain().damage
+            print(f"Alien Health: {attack}")
+            if attack == 0:
+                aliens_killed.append(alien_choose.name) 
+            else:
+                print("Keep going you're almost finished!")
 
         
                 
