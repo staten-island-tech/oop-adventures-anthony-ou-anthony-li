@@ -84,14 +84,13 @@ class SMG(weapon):
         return f"{self.name}: {self.damage} {'damage'}"
 
 # Start of game
-
-
 class space:
     def __init__(self):
-        self.Main_Character = Captain()
+        self.Main_Character = Captain().health
         self.aliens = [Bloater, Regurgitator, Necrosis]
         self.current_weapon = None
-        self.health = Captain().health
+        self.aliens_killed = []
+        
 
     def start(self):
         print('Space Explorer')
@@ -168,29 +167,35 @@ class space:
             sys.exit('GAME OVER')
 
     def player_v_alien(self):
-        self.aliens = [Bloater(), Regurgitator(), Necrosis()]
-        player = Captain().health
-        aliens_killed = []
+        player = self.Main_Character
     
     #Loop for until you die or Aliens killed is 10 
-        while player > 0 and len(aliens_killed) <= 10:
+        while player > 0 and len(self.aliens_killed) <= 10:
             alien_choose = random.choice(self.aliens)
-    # Display Aliens info 
-            print(f"A {alien_choose.name} is coming after you")
+            print(f'A {alien_choose} is coming after you')
             health = player - alien_choose.damage
             print(f"Health: {health}")
-            attack = alien_choose.health - Captain().damage
+            attack = alien_choose.health - player
             print(f"Alien Health: {attack}")
             if attack == 0:
-                aliens_killed.append(alien_choose.name) 
+                self.aliens_killed.append(alien_choose.name) 
             else:
                 print("Keep going you're almost finished!")
+            if player == 0:
+                sys.exit('GAME OVER YOU DIED')
+            if self.aliens_killed == 10:
+                sys.exit('CONGRATULATIONS YOU WON THE GAME')
 
         
                 
 
 def main():
     game = space()
+    game.start()
+    game.choose_weapon()
+    game.get_weapon()
+    game.display_weapon()
+    game.asteroid_navigation()
     game.player_v_alien()
 
 
