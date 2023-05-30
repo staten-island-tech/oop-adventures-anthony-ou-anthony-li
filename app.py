@@ -1,7 +1,7 @@
 import random
 from time import sleep
 import sys
-
+delay = sleep(2)
 # Character
 
 
@@ -124,29 +124,31 @@ class space:
             print('You have no weapons equipped')
 
     def player_v_alien(self):
-        alien_limit = 3
+        alien_limit = 10
 
         while self.Main_Character.health > 0 and len(self.aliens_killed) < alien_limit:
             alien_choose = random.choice(self.aliens)()
             print(f'A {alien_choose.name} is coming after you')
             damage = self.current_weapon.damage
-
+            delay
             # Apply damage to the alien
             self.apply_damage(self.current_weapon, alien_choose)
+            delay
             print(f"Alien Health: {alien_choose.health}")
-
             # Apply damage to the player
             self.Main_Character.health -= alien_choose.damage
+            delay
             print(f"Health: {self.Main_Character.health}")
-
             if alien_choose.health == 0:
                 self.aliens_killed.append(alien_choose.name)
             else:
+                delay
                 print("Keep going you're almost finished!")
-
             if self.Main_Character.health <= 0:
+                delay
                 sys.exit('GAME OVER YOU DIED')
             if len(self.aliens_killed) == alien_limit:
+                delay
                 sys.exit('CONGRATULATIONS YOU WON THE GAME')
 
     def apply_damage(self, weapon, alien):
@@ -208,3 +210,4 @@ def main():
     game.player_v_alien()
 
 main()
+    
