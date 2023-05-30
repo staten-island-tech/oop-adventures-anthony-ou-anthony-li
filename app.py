@@ -30,7 +30,7 @@ class Aliens:
 
 class Bloater(Aliens):
     def __init__(self):
-        super().__init__(health=20, name="Bloater", damage=10)
+        super().__init__(health=20, name="Bloater", damage=9)
 
     def __str__(self):
         return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
@@ -38,7 +38,7 @@ class Bloater(Aliens):
 
 class Regurgitator(Aliens):
     def __init__(self):
-        super().__init__(health=10, name="Regurgitator", damage=10)
+        super().__init__(health=10, name="Regurgitator", damage=8)
 
     def __str__(self):
         return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
@@ -46,7 +46,7 @@ class Regurgitator(Aliens):
 
 class Necrosis(Aliens):
     def __init__(self):
-        super().__init__(health=10, name="Necrosis", damage=15)
+        super().__init__(health=10, name="Necrosis", damage=11)
 
     def __str__(self):
         return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
@@ -124,7 +124,7 @@ class space:
             print('You have no weapons equipped')
 
     def player_v_alien(self):
-        alien_limit = 10
+        alien_limit = 3
 
         while self.Main_Character.health > 0 and len(self.aliens_killed) < alien_limit:
             alien_choose = random.choice(self.aliens)()
