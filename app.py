@@ -86,7 +86,7 @@ class SMG(weapon):
 # Start of game
 class space:
     def __init__(self):
-        self.Main_Character = Captain().health
+        self.Main_Character = Captain()
         self.aliens = [Bloater, Regurgitator, Necrosis]
         self.current_weapon = None
         self.aliens_killed = []
@@ -123,6 +123,39 @@ class space:
         else:
             print('You have no weapons equipped')
 
+    def player_v_alien(self):
+        alien_limit = 10
+
+        while self.Main_Character.health > 0 and len(self.aliens_killed) < alien_limit:
+            alien_choose = random.choice(self.aliens)()
+            print(f'A {alien_choose.name} is coming after you')
+            damage = self.current_weapon.damage
+
+            # Apply damage to the alien
+            self.apply_damage(self.current_weapon, alien_choose)
+            print(f"Alien Health: {alien_choose.health}")
+
+            # Apply damage to the player
+            self.Main_Character.health -= alien_choose.damage
+            print(f"Health: {self.Main_Character.health}")
+
+            if alien_choose.health == 0:
+                self.aliens_killed.append(alien_choose.name)
+            else:
+                print("Keep going you're almost finished!")
+
+            if self.Main_Character.health <= 0:
+                sys.exit('GAME OVER YOU DIED')
+            if len(self.aliens_killed) == alien_limit:
+                sys.exit('CONGRATULATIONS YOU WON THE GAME')
+
+    def apply_damage(self, weapon, alien):
+        damage = weapon.damage
+        alien.health -= damage
+        if alien.health <= 0:
+            alien.health = 0
+
+
 # Choice, navigate to ship
     def asteroid_navigation(self):
         print('What do you want to do')
@@ -130,7 +163,6 @@ class space:
         print('B. Run away')
         choice = input('Pick your choice (A/B): ').upper()
 
-    # Error Handling
         while choice not in ['A', 'B']:
             print('Invalid input, please enter A or B')
             choice = input('Pick your choice (A/B): ').upper()
@@ -165,38 +197,14 @@ class space:
                     break
         if choice == 'B':
             sys.exit('GAME OVER')
-
-    def player_v_alien(self):
-        player = self.Main_Character
-    
-    #Loop for until you die or Aliens killed is 10 
-        while player > 0 and len(self.aliens_killed) <= 10:
-            alien_choose = random.choice(self.aliens)
-            print(f'A {alien_choose} is coming after you')
-            health = player - alien_choose.damage
-            print(f"Health: {health}")
-            attack = alien_choose.health - player
-            print(f"Alien Health: {attack}")
-            if attack == 0:
-                self.aliens_killed.append(alien_choose.name) 
-            else:
-                print("Keep going you're almost finished!")
-            if player == 0:
-                sys.exit('GAME OVER YOU DIED')
-            if self.aliens_killed == 10:
-                sys.exit('CONGRATULATIONS YOU WON THE GAME')
-
-        
                 
 
 def main():
     game = space()
     game.start()
     game.choose_weapon()
-    game.get_weapon()
     game.display_weapon()
     game.asteroid_navigation()
     game.player_v_alien()
-
 
 main()
