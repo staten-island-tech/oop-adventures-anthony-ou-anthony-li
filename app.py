@@ -1,7 +1,7 @@
 import random
 from time import sleep
 import sys
-delay = sleep(2)
+delay = sleep(5)
 # Character
 
 
