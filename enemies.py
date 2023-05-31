@@ -77,6 +77,8 @@ def apply_damage(self, weapon, alien):
     if alien.health <= 0:
         alien.health = 0
 
+player_v_alien()
+
 
 
 
