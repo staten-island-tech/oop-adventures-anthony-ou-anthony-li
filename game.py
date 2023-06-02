@@ -1,8 +1,10 @@
-from enemies import space, player_v_alien
-from story import start, asteroid_navigation
-from weapons import choose_weapon, display_weapon
+import random
 from time import sleep
 import sys
+from weapons import Rifle, Sniper, SMG
+from enemies import Bloater, Necrosis, Regurgitator, Captain
+from story import space
+
 
 def main():
     game = space()
