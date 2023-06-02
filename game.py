@@ -10,7 +10,7 @@ def main():
     game.choose_weapon()
     game.display_weapon()
     game.asteroid_navigation()
-    game.player_v_alien()
+
 
 main()
     
