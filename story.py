@@ -48,7 +48,6 @@ class space:
         while self.Main_Character.health > 0 and len(self.aliens_killed) < alien_limit:
             alien_choose = random.choice(self.aliens)()
             print(f'A {alien_choose.name} is coming after you')
-            damage = self.current_weapon.damage
             # Apply damage to the alien
             self.apply_damage(self.current_weapon, alien_choose)
             print(f"Alien Health: {alien_choose.health}")
