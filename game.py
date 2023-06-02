@@ -6,13 +6,13 @@ from enemies import Bloater, Necrosis, Regurgitator, Captain
 from story import space
 
 
-def main():
-    game = space()
-    game.start()
-    game.choose_weapon()
-    game.display_weapon()
-    game.asteroid_navigation()
-    game.player_v_alien()
+def main(self):
+    game = space(self)
+    game.start(self)
+    game.choose_weapon(self)
+    game.display_weapon(self)
+    game.asteroid_navigation(self)
+    game.player_v_alien(self)
 
 main()
     
