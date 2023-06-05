@@ -1,6 +1,7 @@
 import random
 from time import sleep
 import sys
+
 # Character
 
 
@@ -105,7 +106,6 @@ class space:
         while self.current_weapon is None:
             weapon_choice = input('Enter in your weapon choice: ')
             self.current_weapon = self.get_weapon(weapon_choice)
-        ##Error Handling
             if self.current_weapon == None:
                 print('Invalid weapon choice, please enter in a valid weapon')
 
@@ -120,27 +120,29 @@ class space:
             print('Your chosen weapon: ')
             print(self.current_weapon)
             sleep(3)
-        ##Error Handling
         else:
             print('You have no weapons equipped')
 
     def player_v_alien(self):
-        alien_limit = 10
+        alien_limit = 3
 
         while self.Main_Character.health > 0 and len(self.aliens_killed) < alien_limit:
             alien_choose = random.choice(self.aliens)()
             print(f'A {alien_choose.name} is coming after you')
-            damage = self.current_weapon.damage
+
             # Apply damage to the alien
             self.apply_damage(self.current_weapon, alien_choose)
             print(f"Alien Health: {alien_choose.health}")
+
             # Apply damage to the player
             self.Main_Character.health -= alien_choose.damage
             print(f"Health: {self.Main_Character.health}")
+
             if alien_choose.health == 0:
                 self.aliens_killed.append(alien_choose.name)
             else:
                 print("Keep going you're almost finished!")
+
             if self.Main_Character.health <= 0:
                 sys.exit('GAME OVER YOU DIED')
             if len(self.aliens_killed) == alien_limit:
@@ -159,7 +161,7 @@ class space:
         print('A. Go through Asteroid field until you find ship')
         print('B. Run away')
         choice = input('Pick your choice (A/B): ').upper()
-# Error Handling
+
         while choice not in ['A', 'B']:
             print('Invalid input, please enter A or B')
             choice = input('Pick your choice (A/B): ').upper()
@@ -177,7 +179,8 @@ class space:
                     sleep(4)
                     print('Passing Asteroid field')
                     sleep(1.5)
-                    print('You have successfully passed the Asteroid Field, you have now reached the ship')
+                    print(
+                        'You have successfully passed the Asteroid Field, you have now reached the ship')
                     break
 
             # Handle choice B
@@ -204,4 +207,3 @@ def main():
     game.player_v_alien()
 
 main()
-    
