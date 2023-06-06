@@ -21,14 +21,14 @@ class Captain(character):
  # Aliens
 
 
-class Aliens:
+class aliens:
     def __init__(self, health, name, damage):
         self.health = health
         self.name = name
         self.damage = damage
 
 
-class Bloater(Aliens):
+class Bloater(aliens):
     def __init__(self):
         super().__init__(health=20, name="Bloater", damage=9)
 
@@ -36,7 +36,7 @@ class Bloater(Aliens):
         return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
 
 
-class Regurgitator(Aliens):
+class Regurgitator(aliens):
     def __init__(self):
         super().__init__(health=10, name="Regurgitator", damage=8)
 
@@ -44,7 +44,7 @@ class Regurgitator(Aliens):
         return f"{self.name}, {'health'}: {self.health}, {'damage'}: {self.damage}"
 
 
-class Necrosis(Aliens):
+class Necrosis(aliens):
     def __init__(self):
         super().__init__(health=10, name="Necrosis", damage=11)
 
@@ -128,7 +128,7 @@ class space:
 
         while self.Main_Character.health > 0 and len(self.aliens_killed) < alien_limit:
             alien_choose = random.choice(self.aliens)()
-            print(f'A {alien_choose.name} is coming after you')
+            print(f'A {alien_choose} is coming after you')
 
             # Apply damage to the alien
             self.apply_damage(self.current_weapon, alien_choose)

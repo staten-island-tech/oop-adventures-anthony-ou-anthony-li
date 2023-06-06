@@ -3,13 +3,20 @@ from weapons import Rifle, Sniper, SMG
 import random
 from time import sleep
 import sys
-
-class space:
+captain  = Captain()
+bloater  = Bloater()
+regurgitator  = Regurgitator()
+necrosis = Necrosis()
+rifle = Rifle()
+sniper = Sniper()
+smg = SMG()
+class Space: #x,y factor 
     def __init__(self):
         self.Main_Character = Captain()
-        self.aliens = [Bloater, Regurgitator, Necrosis]
+        self.aliens = [bloater, regurgitator, necrosis]
         self.current_weapon = None
         self.aliens_killed = []
+        print("initiliazed")
 
     def start(self):
         print('Space Explorer')
@@ -19,7 +26,7 @@ class space:
         print('The message is obscure, but you can make out that they are under attack by aliens.')
 
     def choose_weapon(self):
-        available_weapons = [Rifle(), Sniper(), SMG()]
+        available_weapons = [rifle, sniper, smg]
         for name in available_weapons:
             print(name)
         while self.current_weapon is None:
@@ -29,7 +36,7 @@ class space:
                 print('Invalid weapon choice, please enter in a valid weapon')
 
     def get_weapon(self, name):
-        available_weapons = [Rifle(), Sniper(), SMG()]
+        available_weapons = [rifle, sniper, smg]
         for weapon_choice in available_weapons:
             if weapon_choice.name.lower() == name.lower():
                 return weapon_choice
@@ -118,7 +125,7 @@ class space:
                 
 
 def main():
-    game = space()
+    game = Space()
     game.start()
     game.choose_weapon()
     game.display_weapon()
